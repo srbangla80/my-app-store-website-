@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic App Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ডিটেইল পেজের জন্য অতিরিক্ত স্টাইল */
+        .detail-header {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .detail-header img.icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 25px;
+            margin-right: 25px;
+        }
+        .detail-info h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+        .detail-info .developer {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .download-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 700;
+            text-align: center;
+        }
+        .download-btn:hover {
+            background-color: #218838;
+        }
+        .description, .screenshots {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .screenshots {
+            display: flex;
+            overflow-x: auto; /* স্ক্রল করা যাবে */
+        }
+        .screenshots img {
+            height: 300px;
+            margin-right: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="detail-header">
+            <img src="httpsstatic.com/images/1_app_icon.png" alt="App Icon" class="icon">
+            <div class="detail-info">
+                <h1>Islamic App</h1>
+                <div class="developer">Your Developer Name</div>
+                <a href="https://pub-....r2.dev/MyIslamicApp.apk" class="download-btn">Download Now</a>
+            </div>
+        </div>
+
+        <div class="screenshots">
+            <h3>Screenshots</h3>
+            <img src="httpsstatic.com/images/1_ss1.png" alt="Screenshot 1">
+            <img src="httpsstatic.com/images/1_ss2.png" alt="Screenshot 2">
+            <img src="httpsstatic.com/images/1_ss3.png" alt="Screenshot 3">
+        </div>
+
+        <div class="description">
+            <h3>Description</h3>
+            <p>A complete app for prayer times, Quran, Hadith, and more. Easy to use interface. Download now and get all islamic features in one place.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, nemo.</p>
+        </div>
+        
+        <a href="index.html" style="font-weight: 500; color: var(--primary-color);">&larr; Back to all apps</a>
+    </main>
+</body>
+</html>
