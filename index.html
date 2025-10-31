@@ -5,32 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My App Store</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>My Awesome App Store</h1>
-        <p>Download my latest Android apps directly.</p>
+        <div class="logo">My App Store</div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for apps...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
     </header>
 
-    <main class="app-grid">
-        <div class="app-card">
-            <img src="httpsstatic.com/images/1_app_icon.png" alt="App Icon">
-            <h3>Islamic App</h3>
-            <p>A complete app for prayer times and Quran.</p>
-            <a href="islamic-app.html" class="btn">View Details</a>
-        </div>
+    <nav class="category-nav">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Islamic</a></li>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Tools</a></li>
+        </ul>
+    </nav>
 
-        <div class="app-card">
-            <img src="httpsstatic.com/images/2_app_icon.png" alt="App Icon">
-            <h3>Prescription Maker</h3>
-            <p>Create digital prescriptions easily.</p>
-            <a href="prescription-maker.html" class="btn">View Details</a>
-        </div>
+    <main>
+        <h2>Featured Apps</h2>
+        <div class="app-grid" id="appGrid">
+            
+            <div class="app-card" data-category="islamic">
+                <a href="app-1.html">
+                    <img src="httpsstatic.com/images/1_app_icon.png" alt="Islamic App Icon">
+                    <div class="app-info">
+                        <h3 class="app-title">Islamic App</h3>
+                        <span class="app-category">Islamic</span>
+                        <div class="app-rating">
+                            <span>4.5 <i class="fas fa-star"></i></span>
+                            <span class="app-downloads">10K+ Downloads</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-        </main>
+            <div class="app-card" data-category="tools">
+                <a href="app-2.html">
+                    <img src="httpsstatic.com/images/2_app_icon.png" alt="Prescription Maker Icon">
+                    <div class="app-info">
+                        <h3 class="app-title">Prescription Maker</h3>
+                        <span class="app-category">Tools</span>
+                        <div class="app-rating">
+                            <span>4.8 <i class="fas fa-star"></i></span>
+                            <span class="app-downloads">5K+ Downloads</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-    <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
-    </footer>
+            <div class="app-card" data-category="education">
+                <a href="app-3.html">
+                    <img src="httpsstatic.com/images/3_app_icon.png" alt="Kids Learning Icon">
+                    <div class="app-info">
+                        <h3 class="app-title">Kids Learning</h3>
+                        <span class="app-category">Education</span>
+                        <div class="app-rating">
+                            <span>4.2 <i class="fas fa-star"></i></span>
+                            <span class="app-downloads">1K+ Downloads</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            </div>
+    </main>
+    <script src="search.js"></script>
 </body>
 </html>
