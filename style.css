@@ -1,35 +1,51 @@
-/* CSS Variables */
+/* CSS Variables (রঙের ভাণ্ডার) */
 :root {
-    --primary-color: #007bff; /* প্রধান রঙ */
-    --body-bg: #f4f7f6;
+    --primary-color: #0073e6;
+    --body-bg: #f8f9fa;
     --card-bg: #ffffff;
-    --text-color: #333;
-    --text-light: #777;
-    --star-color: #ffc107;
+    --text-color: #212529;
+    --text-light: #6c757d;
+    --border-color: #e9ecef;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Base Styles (মৌলিক স্টাইল) */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     background-color: var(--body-bg);
     color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
 }
 a {
     text-decoration: none;
     color: inherit;
 }
+img {
+    max-width: 100%;
+    display: block;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-/* Header and Search */
+/* Header and Search (হেডার ও সার্চ বার) */
 header {
+    background-color: var(--card-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
+}
+header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background-color: var(--card-bg);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 .logo {
-    font-size: 1.5em;
+    font-size: 1.6em;
     font-weight: 700;
     color: var(--primary-color);
 }
@@ -43,27 +59,32 @@ header {
     border: 1px solid #ddd;
     border-radius: 20px 0 0 20px;
     outline: none;
+    font-size: 1em;
+}
+.search-bar input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 115, 230, 0.2);
 }
 .search-bar button {
-    padding: 10px 15px;
+    padding: 10px 18px;
     border: none;
     background-color: var(--primary-color);
     color: white;
     border-radius: 0 20px 20px 0;
     cursor: pointer;
+    font-size: 1em;
 }
 
-/* Category Navigation */
+/* Category Navigation (ক্যাটাগরি মেনু) */
 .category-nav {
     background-color: var(--card-bg);
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 .category-nav ul {
     display: flex;
-    justify-content: center;
     list-style: none;
     margin: 0;
-    padding: 0 30px;
+    padding: 0;
 }
 .category-nav li a {
     display: block;
@@ -71,6 +92,7 @@ header {
     font-weight: 500;
     color: var(--text-light);
     border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
 }
 .category-nav li a.active,
 .category-nav li a:hover {
@@ -78,75 +100,87 @@ header {
     border-bottom-color: var(--primary-color);
 }
 
-/* Main Content & App Grid */
+/* Main Content (মূল কন্টেন্ট) */
 main {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
+    padding: 30px 0;
 }
 main h2 {
     font-size: 1.8em;
     margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
 }
 .app-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
 }
 
-/* App Card Design */
+/* App Card Design (অ্যাপ কার্ড ডিজাইন - সবচেয়ে গুরুত্বপূর্ণ) */
 .app-card {
     background-color: var(--card-bg);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 16px; /* আরও গোলাকার */
+    box-shadow: var(--shadow-light);
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+/* সেই ডাইনামিক হোভার এফেক্ট */
 .app-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-hover);
 }
 .app-card a {
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    height: 100%;
 }
-.app-card img {
+.app-icon { /* অ্যাপের আইকন */
     width: 100%;
-    height: 150px; /* Adjust height as needed */
+    aspect-ratio: 16 / 9; /* আপনি চাইলে 1 / 1 করতে পারেন */
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
 }
 .app-info {
+    padding: 15px;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 .app-title {
-    font-size: 1.1em;
-    font-weight: 500;
+    font-size: 1.2em;
+    font-weight: 700;
     margin: 0 0 5px 0;
+    color: var(--text-color);
 }
 .app-category {
     font-size: 0.9em;
     color: var(--text-light);
-    margin-bottom: 10px;
-    display: block;
+    margin-bottom: 12px;
 }
 .app-rating {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.9em;
+    color: var(--text-light);
+    margin-top: auto; /* রেটিং-কে কার্ডের নিচে রাখে */
 }
 .app-rating span:first-child {
     font-weight: 500;
     color: var(--text-color);
 }
 .app-rating .fa-star {
-    color: var(--star-color);
+    color: #ffc107; /* স্টার আইকনের রঙ */
 }
-.app-downloads {
-    color: var(--text-light);
+
+/* Footer (ফুটার) */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 30px;
+    background-color: #343a40;
+    color: #f8f9fa;
 }
 
 /* সার্চের জন্য (লুকানো কার্ড) */
