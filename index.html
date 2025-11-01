@@ -3,134 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My App Store</title>
+    <title>AppStore</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header class="sticky-header">
-        <div class="container">
-            <div class="logo">AppStore</div>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Search for apps...">
-                <button><i class="fas fa-search"></i></button>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-cube app-logo-icon"></i> AppStore
             </div>
-        </div>
-    </header>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-th-large"></i> Categories</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Top Charts</a></li>
+                    <li><a href="#"><i class="fas fa-star"></i> Recommended</a></li>
+                    <li><a href="#"><i class="fas fa-user-circle"></i> Profile</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-    <nav class="category-nav">
-        <div class="container">
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Islamic</a></li>
-                <li><a href="#">Education</a></li>
-                <li><a href="#">Tools</a></li>
-            </ul>
-        </div>
-    </nav>
+        <div class="main-content-area">
+            <header class="main-header">
+                <div class="search-bar-header">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search apps, games, and more...">
+                </div>
+                <div class="header-actions">
+                    <button class="icon-button"><i class="fas fa-bell"></i></button>
+                    <div class="user-avatar"></div>
+                </div>
+            </nav>
 
-    <main>
-        <div class="container">
-            
-            <section class="hero-section">
-                <div class="hero-content">
-                    <span class="hero-subtitle">Editor's Choice</span>
-                    <h1 class="hero-title">Your Best App Here</h1>
-                    <p class="hero-description">A short, catchy description about your best app. Make users interested!</p>
-                    <a href="app-1.html" class="hero-button">Get Now <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="hero-image">
-                    <img src="https://pub-fc649af81e0e4ff797968cffee4d9cd9.r2.dev/photo_2025-09-24_17-25-22.jpg" alt="Hero App">
-                </div>
-            </section>
-            <h2>Featured Apps</h2>
-            <div class="app-grid" id="appGrid">
-                
-                <div class="app-card" data-category="islamic" data-slug="islamic-app">
-                    <a href="app-1.html">
-                        <img src="https://pub-fc649af81e0e4ff797968cffee4d9cd9.r2.dev/photo_2025-09-24_17-25-22.jpg" alt="Islamic App Icon" class="app-icon">
-                        <div class="app-info">
-                            <h3 class="app-title">Islamic App</h3>
-                            <span class="app-category">Islamic</span>
-                            <div class="app-rating">
-                                <span>4.5 <i class="fas fa-star"></i></span>
-                                <span class="app-downloads">10K+</span>
-                            </div>
+            <main class="main-body">
+                <section class="hero-section">
+                    <div class="hero-card app-of-the-day">
+                        <span class="hero-subtitle">App of the Day</span>
+                        <h2 class="hero-title">Productivity Pro</h2>
+                        <p class="hero-description">Discover amazing productivity tools</p>
+                        <div class="app-meta">
+                            <div class="app-icon-small" style="background-image: url('https://pub-fc649af81e0e4ff797968cffee4d9cd9.r2.dev/photo_2025-09-24_17-25-22.jpg');"></div>
+                            <span class="app-developer">Developer Studio</span>
+                            <span class="app-rating-small">4.8 <i class="fas fa-star"></i></span>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                    <div class="hero-card-small">
+                        <div class="app-icon-small" style="background-image: url('httpsstatic.com/images/game_center_icon.png');"></div>
+                        <h3 class="app-title-small">Game Center</h3>
+                        <span class="app-category-small">Gaming Hub</span>
+                        <span class="app-rating-small">4.2 <i class="fas fa-star"></i></span>
+                    </div>
+                    <div class="hero-card-small">
+                        <div class="app-icon-small" style="background-image: url('httpsstatic.com/images/photo_editor_icon.png');"></div>
+                        <h3 class="app-title-small">Photo Editor</h3>
+                        <span class="app-category-small">Creative Tools</span>
+                        <span class="app-rating-small">4.9 <i class="fas fa-star"></i></span>
+                    </div>
+                </section>
 
-                <div class="app-card" data-category="tools" data-slug="prescription-maker">
-                    <a href="app-2.html">
-                        <img src="httpsstatic.com/images/2_app_icon.png" alt="Prescription Maker Icon" class="app-icon">
-                        <div class="app-info">
-                            <h3 class="app-title">Prescription Maker</h3>
-                            <span class="app-category">Tools</span>
-                            <div class="app-rating">
-                                <span>4.8 <i class="fas fa-star"></i></span>
-                                <span class="app-downloads">5K+</span>
+                <section class="categories-section">
+                    <div class="section-header">
+                        <h2>Categories</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="category-grid">
+                        <a href="#" class="category-pill" data-category="games" style="background-color: #A78BFA;"><i class="fas fa-gamepad"></i> Games</a>
+                        <a href="#" class="category-pill" data-category="business" style="background-color: #6366F1;"><i class="fas fa-briefcase"></i> Business</a>
+                        <a href="#" class="category-pill" data-category="education" style="background-color: #34D399;"><i class="fas fa-graduation-cap"></i> Education</a>
+                        <a href="#" class="category-pill" data-category="photo" style="background-color: #F87171;"><i class="fas fa-camera"></i> Photo</a>
+                        <a href="#" class="category-pill" data-category="music" style="background-color: #FBBF24;"><i class="fas fa-music"></i> Music</a>
+                        <a href="#" class="category-pill" data-category="health" style="background-color: #22D3EE;"><i class="fas fa-heartbeat"></i> Health</a>
+                    </div>
+                </section>
+
+                <section class="top-charts-section">
+                    <div class="section-header">
+                        <h2>Top Charts</h2>
+                        <a href="#" class="view-all">See All</a>
+                    </div>
+                    <div class="top-charts-grid">
+                        <div class="chart-item">
+                            <span class="chart-rank">1</span>
+                            <div class="app-icon-list" style="background-image: url('https://pub-fc649af81e0e4ff797968cffee4d9cd9.r2.dev/photo_2025-09-24_17-25-22.jpg');"></div>
+                            <div class="app-info-list">
+                                <h3 class="app-title-list">Productivity Pro</h3>
+                                <span class="app-developer-list">Developer Studio</span>
                             </div>
+                            <button class="install-button">Install</button>
                         </div>
-                    </a>
-                </div>
-
-                <div class="app-card" data-category="education" data-slug="kids-learning">
-                    <a href="app-3.html">
-                        <img src="httpsstatic.com/images/3_app_icon.png" alt="Kids Learning Icon" class="app-icon">
-                        <div class="app-info">
-                            <h3 class="app-title">Kids Learning</h3>
-                            <span class="app-category">Education</span>
-                            <div class="app-rating">
-                                <span>4.2 <i class="fas fa-star"></i></span>
-                                <span class="app-downloads">1K+</span>
+                        <div class="chart-item">
+                            <span class="chart-rank">2</span>
+                            <div class="app-icon-list" style="background-image: url('httpsstatic.com/images/eco_tracker_icon.png');"></div>
+                            <div class="app-info-list">
+                                <h3 class="app-title-list">EcoTracker</h3>
+                                <span class="app-developer-list">Green Apps Inc</span>
                             </div>
+                            <button class="install-button">Install</button>
                         </div>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </main>
+                        <div class="chart-item">
+                            <span class="chart-rank">3</span>
+                            <div class="app-icon-list" style="background-image: url('httpsstatic.com/images/fitness_tracker_icon.png');"></div>
+                            <div class="app-info-list">
+                                <h3 class="app-title-list">Fitness Tracker</h3>
+                                <span class="app-developer-list">Health Co</span>
+                            </div>
+                            <button class="install-button">Install</button>
+                        </div>
+                    </div>
+                </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 My App Store. All rights reserved.</p>
+                <section class="recommended-section">
+                    <div class="section-header">
+                        <h2>Recommended</h2>
+                        <a href="#" class="view-all">Refresh</a>
+                    </div>
+                    <div class="recommended-grid">
+                        <div class="recommended-item">
+                            <div class="app-icon-rec" style="background-image: url('httpsstatic.com/images/design_studio_icon.png');"></div>
+                            <div class="rec-info">
+                                <h3 class="app-title-rec">Design Studio</h3>
+                                <span class="app-category-rec">Creative Design Tools</span>
+                                <span class="app-rating-rec">4.3 <i class="fas fa-star"></i></span>
+                            </div>
+                            <button class="get-button">Get</button>
+                        </div>
+                        <div class="recommended-item">
+                            <div class="app-icon-rec" style="background-image: url('httpsstatic.com/images/code_editor_icon.png');"></div>
+                            <div class="rec-info">
+                                <h3 class="app-title-rec">Code Editor Pro</h3>
+                                <span class="app-category-rec">Developer Tools</span>
+                                <span class="app-rating-rec">4.7 <i class="fas fa-star"></i></span>
+                            </div>
+                            <button class="get-button">Get</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
-    </footer>
+    </div>
     
     <script src="search.js"></script>
-
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const statsUrl = "https://app-store-counter.srbangla80.workers.dev/stats";
-        fetch(statsUrl)
-          .then(response => response.json())
-          .then(stats => {
-            document.querySelectorAll('.app-card').forEach(card => {
-              const slug = card.dataset.slug;
-              const appStat = stats.find(stat => stat.app_slug === slug);
-              if (appStat) {
-                const downloadsElement = card.querySelector('.app-downloads');
-                if (downloadsElement) {
-                  const downloadCount = formatDownloads(appStat.downloads);
-                  downloadsElement.textContent = `${downloadCount}+`; // "Downloads" লেখাটি সরিয়ে দিয়েছি
-                }
-              }
-            });
-          })
-          .catch(error => {
-            console.error("Error fetching download stats:", error);
-          });
-      });
-      function formatDownloads(num) {
-        if (num < 1000) { return num; }
-        if (num < 1000000) { return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K'; }
-        return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
-      }
+        document.addEventListener("DOMContentLoaded", () => {
+            const statsUrl = "https://app-store-counter.srbangla80.workers.dev/stats";
+            fetch(statsUrl)
+                .then(response => response.json())
+                .then(stats => {
+                    // এখানে app-card নেই, তাই app-downloads সরাসরি আপডেট করা যাবে না।
+                    // যদি এই কার্ডগুলোতে ডাউনলোড সংখ্যা দেখাতে চান, তবে তাদের জন্য আলাদা .app-downloads ক্লাস যুক্ত করতে হবে।
+                    // উদাহরণস্বরূপ, Hero Section-এর Productivity Pro-তে যদি ডাউনলোড দেখাতে চান:
+                    const productivityProDownloads = stats.find(stat => stat.app_slug === 'islamic-app'); // আপনার স্ল্যাগ অনুযায়ী
+                    if (productivityProDownloads) {
+                        // ধরে নিচ্ছি আপনি এটি Hero Section-এ দেখাতে চান, তবে তার জন্য HTML এ একটি স্প্যান যোগ করতে হবে
+                        // যেমন: <span class="hero-downloads">X Downloads</span>
+                    }
+                    // Top Charts বা Recommended সেকশনের জন্য একই পদ্ধতি অবলম্বন করতে হবে
+                })
+                .catch(error => {
+                    console.error("Error fetching download stats:", error);
+                });
+        });
+
+        function formatDownloads(num) {
+            if (num < 1000) { return num; }
+            if (num < 1000000) { return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K'; }
+            return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        }
     </script>
 </body>
 </html>
