@@ -10,95 +10,97 @@
 </head>
 <body>
     <header>
-        <div class="logo">My App Store</div>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search for apps...">
-            <button><i class="fas fa-search"></i></button>
+        <div class="container">
+            <div class="logo">My App Store</div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for apps...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
         </div>
     </header>
 
     <nav class="category-nav">
-        <ul>
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">Islamic</a></li>
-            <li><a href="#">Education</a></li>
-            <li><a href="#">Tools</a></li>
-        </ul>
+        <div class="container">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Islamic</a></li>
+                <li><a href="#">Education</a></li>
+                <li><a href="#">Tools</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
-        <h2>Featured Apps</h2>
-        <div class="app-grid" id="appGrid">
-            
-            <div class="app-card" data-category="islamic" data-slug="islamic-app">
-                <a href="app-1.html">
-                    <img src="https://pub-fc649af81e0e4ff797968cffee4d9cd9.r2.dev/photo_2025-09-24_17-25-22.jpg" alt="Islamic App Icon">
-                    <div class="app-info">
-                        <h3 class="app-title">Islamic App</h3>
-                        <span class="app-category">Islamic</span>
-                        <div class="app-rating">
-                            <span>4.5 <i class="fas fa-star"></i></span>
-                            <span class="app-downloads">10K+ Downloads</span>
+        <div class="container">
+            <h2>Featured Apps</h2>
+            <div class="app-grid" id="appGrid">
+                
+                <div class="app-card" data-category="islamic" data-slug="islamic-app">
+                    <a href="app-1.html">
+                        <img src="https://pub-fc649af81e0e4ff797968cffee4d9cd9.r2.dev/photo_2025-09-24_17-25-22.jpg" alt="Islamic App Icon" class="app-icon">
+                        <div class="app-info">
+                            <h3 class="app-title">Islamic App</h3>
+                            <span class="app-category">Islamic</span>
+                            <div class="app-rating">
+                                <span>4.5 <i class="fas fa-star"></i></span>
+                                <span class="app-downloads">10K+ Downloads</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <div class="app-card" data-category="tools" data-slug="prescription-maker">
-                <a href="app-2.html">
-                    <img src="httpsstatic.com/images/2_app_icon.png" alt="Prescription Maker Icon">
-                    <div class="app-info">
-                        <h3 class="app-title">Prescription Maker</h3>
-                        <span class="app-category">Tools</span>
-                        <div class="app-rating">
-                            <span>4.8 <i class="fas fa-star"></i></span>
-                            <span class="app-downloads">5K+ Downloads</span>
+                <div class="app-card" data-category="tools" data-slug="prescription-maker">
+                    <a href="app-2.html">
+                        <img src="httpsstatic.com/images/2_app_icon.png" alt="Prescription Maker Icon" class="app-icon">
+                        <div class="app-info">
+                            <h3 class="app-title">Prescription Maker</h3>
+                            <span class="app-category">Tools</span>
+                            <div class="app-rating">
+                                <span>4.8 <i class="fas fa-star"></i></span>
+                                <span class="app-downloads">5K+ Downloads</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <div class="app-card" data-category="education" data-slug="kids-learning">
-                <a href="app-3.html">
-                    <img src="httpsstatic.com/images/3_app_icon.png" alt="Kids Learning Icon">
-                    <div class="app-info">
-                        <h3 class="app-title">Kids Learning</h3>
-                        <span class="app-category">Education</span>
-                        <div class="app-rating">
-                            <span>4.2 <i class="fas fa-star"></i></span>
-                            <span class="app-downloads">1K+ Downloads</span>
+                <div class="app-card" data-category="education" data-slug="kids-learning">
+                    <a href="app-3.html">
+                        <img src="httpsstatic.com/images/3_app_icon.png" alt="Kids Learning Icon" class="app-icon">
+                        <div class="app-info">
+                            <h3 class="app-title">Kids Learning</h3>
+                            <span class="app-category">Education</span>
+                            <div class="app-rating">
+                                <span>4.2 <i class="fas fa-star"></i></span>
+                                <span class="app-downloads">1K+ Downloads</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+                
             </div>
-            
         </div>
     </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 My App Store. All rights reserved.</p>
+        </div>
+    </footer>
     
     <script src="search.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // 1. আপনার Worker-এর '/stats' লিঙ্ক
         const statsUrl = "https://app-store-counter.srbangla80.workers.dev/stats";
-
-        // 2. Worker থেকে ডাউনলোডের ডাটা Fetch করুন
         fetch(statsUrl)
           .then(response => response.json())
           .then(stats => {
-            
-            // 3. সব অ্যাপ কার্ডে লুপ করুন
             document.querySelectorAll('.app-card').forEach(card => {
-              const slug = card.dataset.slug; // 'data-slug' থেকে নাম নিন
-              
-              // 4. Worker থেকে পাওয়া ডাটার মধ্যে এই slug-টি খুঁজুন
+              const slug = card.dataset.slug;
               const appStat = stats.find(stat => stat.app_slug === slug);
-
               if (appStat) {
-                // 5. যদি পাওয়া যায়, ডাউনলোড সংখ্যাটি আপডেট করুন
                 const downloadsElement = card.querySelector('.app-downloads');
                 if (downloadsElement) {
-                  // আসল সংখ্যাটি ফরম্যাট করুন (যেমন: 1234 -> 1.2K)
                   const downloadCount = formatDownloads(appStat.downloads);
                   downloadsElement.textContent = `${downloadCount} Downloads`;
                 }
@@ -107,22 +109,13 @@
           })
           .catch(error => {
             console.error("Error fetching download stats:", error);
-            // ত্রুটি ঘটলে, ব্যবহারকারীকে কিছু দেখাবেন না
           });
       });
-
-      // ডাউনলোড সংখ্যা সুন্দর করে ফরম্যাট করার ফাংশন
       function formatDownloads(num) {
-        if (num < 1000) {
-          return num; // 999 পর্যন্ত আসল সংখ্যা দেখাবে
-        }
-        if (num < 1000000) {
-          // 1234 -> 1.2K, 12345 -> 12.3K
-          return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
-        }
-        // 10 লক্ষের বেশি হলে M (Million) দেখাবে
+        if (num < 1000) { return num; }
+        if (num < 1000000) { return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K'; }
         return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
       }
     </script>
-    </body>
+</body>
 </html>
