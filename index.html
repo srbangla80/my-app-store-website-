@@ -30,7 +30,7 @@
         <h2>Featured Apps</h2>
         <div class="app-grid" id="appGrid">
             
-            <div class="app-card" data-category="islamic">
+            <div class="app-card" data-category="islamic" data-slug="islamic-app">
                 <a href="app-1.html">
                     <img src="https://pub-fc649af81e0e4ff797968cffee4d9cd9.r2.dev/photo_2025-09-24_17-25-22.jpg" alt="Islamic App Icon">
                     <div class="app-info">
@@ -44,7 +44,7 @@
                 </a>
             </div>
 
-            <div class="app-card" data-category="tools">
+            <div class="app-card" data-category="tools" data-slug="prescription-maker">
                 <a href="app-2.html">
                     <img src="httpsstatic.com/images/2_app_icon.png" alt="Prescription Maker Icon">
                     <div class="app-info">
@@ -58,7 +58,7 @@
                 </a>
             </div>
 
-            <div class="app-card" data-category="education">
+            <div class="app-card" data-category="education" data-slug="kids-learning">
                 <a href="app-3.html">
                     <img src="httpsstatic.com/images/3_app_icon.png" alt="Kids Learning Icon">
                     <div class="app-info">
@@ -72,8 +72,57 @@
                 </a>
             </div>
             
-            </div>
+        </div>
     </main>
+    
     <script src="search.js"></script>
-</body>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. আপনার Worker-এর '/stats' লিঙ্ক
+        const statsUrl = "https://app-store-counter.srbangla80.workers.dev/stats";
+
+        // 2. Worker থেকে ডাউনলোডের ডাটা Fetch করুন
+        fetch(statsUrl)
+          .then(response => response.json())
+          .then(stats => {
+            
+            // 3. সব অ্যাপ কার্ডে লুপ করুন
+            document.querySelectorAll('.app-card').forEach(card => {
+              const slug = card.dataset.slug; // 'data-slug' থেকে নাম নিন
+              
+              // 4. Worker থেকে পাওয়া ডাটার মধ্যে এই slug-টি খুঁজুন
+              const appStat = stats.find(stat => stat.app_slug === slug);
+
+              if (appStat) {
+                // 5. যদি পাওয়া যায়, ডাউনলোড সংখ্যাটি আপডেট করুন
+                const downloadsElement = card.querySelector('.app-downloads');
+                if (downloadsElement) {
+                  // আসল সংখ্যাটি ফরম্যাট করুন (যেমন: 1234 -> 1.2K)
+                  const downloadCount = formatDownloads(appStat.downloads);
+                  downloadsElement.textContent = `${downloadCount} Downloads`;
+                }
+              }
+            });
+          })
+          .catch(error => {
+            console.error("Error fetching download stats:", error);
+            // ত্রুটি ঘটলে, ব্যবহারকারীকে কিছু দেখাবেন না
+          });
+      });
+
+      // ডাউনলোড সংখ্যা সুন্দর করে ফরম্যাট করার ফাংশন
+      function formatDownloads(num) {
+        if (num < 1000) {
+          return num; // 999 পর্যন্ত আসল সংখ্যা দেখাবে
+        }
+        if (num < 1000000) {
+          // 1234 -> 1.2K, 12345 -> 12.3K
+          return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        }
+        // 10 লক্ষের বেশি হলে M (Million) দেখাবে
+        return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+      }
+    </script>
+    </body>
 </html>
